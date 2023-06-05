@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/chat.css">
+  <script src="js/chat.js"></script>
+  <script src="js/script.js"></script>
+  <script src="js/controller.js"></script>
+</head>
+
+<body>
+  <div class="calculator">
+    <div id="saved-result"></div>
+    <div id="result"></div>
+    <hr />
+
+    <div class="operating-modes">
+      <button onclick="openAdvanced()" class="operator">Advanced</button>
+      <button onclick="openAssistance()" class="operator">Assistance</button>
+    </div>
+
+    <div style="display: none;" id="assistance">
+      <p id="chat-output">Hello! I can help with your calculations. Ask your question.</p>
+      <div class="input-request">
+        <textarea id="chat-request" rows="3"></textarea>
+        <button onclick="sendMessageToChat()" class="operator">Ask</button>
+      </div>
+      <div class="promts">
+        <p>Promts</p>
+        <button onclick="addPromt('[expression]')">[expression]</button>
+        <button onclick="addPromt('[expression] where to use?')">[expression] where to use?</button>
+        <button onclick="addPromt('kilogram to gram')">kilogram to gram</button>
+        <button onclick="addPromt('gram to tonne')">gram to tonne</button>
+        <button onclick="addPromt('kilometer to meter')">kilometer to meter</button>
+        <button onclick="addPromt('centimeter to meter')">centimeter to meter</button>
+        <button onclick="addPromt('square kilometer to square meter')">square kilometer to square meter</button>
+      </div>
+    </div>
+
+    <div style="display: block" id="keypad">
+      <div class="keypad-row">
+        <button onclick="clearResult()" class="operator">C</button>
+        <button onclick="changePlusMinus()" class="operator">±</button>
+        <button onclick="appendFunction('%')" class="operator">%</button>
+        <button onclick="appendOperator('÷')" class="operator">÷</button>
+      </div>
+      <div class="keypad-row">
+        <button onclick="appendOperand('7')">7</button>
+        <button onclick="appendOperand('8')">8</button>
+        <button onclick="appendOperand('9')">9</button>
+        <button onclick="appendOperator('×')" class="operator">×</button>
+      </div>
+      <div class="keypad-row">
+        <button onclick="appendOperand('4')">4</button>
+        <button onclick="appendOperand('5')">5</button>
+        <button onclick="appendOperand('6')">6</button>
+        <button onclick="appendOperator('-')" class="operator">-</button>
+      </div>
+      <div class="keypad-row">
+        <button onclick="appendOperand('1')">1</button>
+        <button onclick="appendOperand('2')">2</button>
+        <button onclick="appendOperand('3')">3</button>
+        <button onclick="appendOperator('+')" class="operator">+</button>
+      </div>
+      <div class="keypad-row">
+        <button onclick="appendOperand('.')">.</button>
+        <button onclick="appendOperand('0')">0</button>
+        <button onclick="calculateResult()" class="equals-button operator">=</button>
+      </div>
+    </div>
+
+    <div style="display: none" id="advanced">
+      <div class="keypad-row">
+        <button onclick="appendFunction('!')" class="operator">x!</button>
+        <button onclick="appendOperator('^')" class="operator">x^</button>
+        <button onclick="appendFunction('√')" class="operator">&#8730;x</button>
+        <button onclick="appendFunction('exp')" class="operator">exp</button>
+      </div>
+      <div class="keypad-row">
+        <button onclick="appendFunction('sin')" class="operator">sin</button>
+        <button onclick="appendFunction('cos')" class="operator">cos</button>
+        <button onclick="appendFunction('tg')" class="operator">tg</button>
+        <button onclick="appendFunction('ctg')" class="operator">ctg</button>
+      </div>
+      <div class="keypad-row">
+        <button onclick="memoryRecall()" class="operator">MR</button>
+        <button onclick="memoryClear()" class="operator">MC</button>
+        <button onclick="memoryAdd()" class="operator">M+</button>
+        <button onclick="memorySubtract()" class="operator">M-</button>
+        <button onclick="memoryStore()" class="operator">MS</button>
+      </div>
+      <div class="keypad-row">
+        <button onclick="choseNumeralSystem('BIN');convertToBinary()" class="operator" id="BIN">BIN</button>
+        <button onclick="choseNumeralSystem('DEC');convertToDecimal()" class="focus operator" id="DEC">DEC</button>
+        <button onclick="choseNumeralSystem('HEX');convertToHexadecimal()" class="operator" id="HEX">HEX</button>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,245 @@
+* {
+    background-color: #d0e1f9;
+}
+
+body {
+    margin-top: 55px;
+}
+
+.calculator {
+    width: 250px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e1f26;
+    border-radius: 15px;
+    box-shadow: 10px 5px 100px black;
+    position: relative;
+    height: 435px;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    background: linear-gradient(45deg,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000);
+    position: absolute;
+
+    top: 75px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-size: 400%;
+    width: calc(85%);
+    height: 2px;
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.calculator input {
+    width: 250px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e1f26;
+    border: none;
+    outline: none;
+    color: #d0e1f9;
+    margin-top: 25px;
+}
+
+.calculator input::after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    right: -2px;
+    /* Adjust the position to the right */
+    bottom: 15px;
+    width: 2px;
+    background-color: #ffffff;
+}
+
+#saved-result
+{
+    background-color: #1e1f26;
+    color: #d0e1f9;
+    font-family: 'Geologica', sans-serif;
+    overflow-y: hidden;
+    overflow-x: auto;
+    font-size: 15px;
+    text-align: right;
+    height: 15px;
+}
+
+#result {
+    height: 40px;
+    padding: 5px;
+    font-size: 25px;
+    background-color: #1e1f26;
+    text-align: right;
+    margin-top: 15px;
+    color: #d0e1f9;
+    font-family: 'Geologica', sans-serif;
+    overflow-y: hidden;
+    overflow-x: auto;
+}
+
+#result::-webkit-scrollbar, 
+#saved-result::-webkit-scrollbar {
+    display: none;
+}
+
+.operator:after {
+    background: radial-gradient(circle at 70% 70%, #2b344d, transparent);
+}
+
+#keypad {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #1e1f26;
+}
+
+.keypad-row {
+    display: flex;
+    flex-basis: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background-color: #1e1f26;
+}
+
+button:last-child {
+    margin-right: 0;
+}
+
+.keypad-row .equals-button {
+    flex: 0 0 50%;
+    border-radius: 100px;
+}
+
+/* CSS */
+button {
+    flex: 1 0 auto;
+    margin-right: 10px;
+    border-radius: 50%;
+    height: 55px;
+    color: #d0e1f9;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    background-color: #1e1f26;
+}
+
+button:hover::before,
+.focus::before {
+    content: "";
+    background: linear-gradient(45deg,
+            #00ffd5,
+            #002bff,
+            #7a00ff,
+            #ff00c8,
+            #ff0000);
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing-button-85 20s linear infinite;
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+@keyframes glowing-button-85 {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+button:after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 70%, #1e1f26, transparent);
+    /* background-color: #1e1f26; */
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+.operating-modes {
+    display: flex;
+    background-color: #1e1f26;
+    margin-bottom: 10px;
+}
+
+.operating-modes button {
+    height: 25px;
+}
+
+#assistance {
+    background-color: #1e1f26;
+}
+
+.input-request {
+    position: absolute;
+    bottom: 0;
+    background-color: #1e1f26;
+    margin-bottom: 15px;
+}
+
+
+.input-request textarea {
+    font-family: 'Geologica', sans-serif;
+    font-weight: bold;
+    border: 2px solid #d0e1f9;
+    margin-bottom: 5px;
+    width: 245px;
+    background-color: #1e1f26;
+    color: #d0e1f9;
+    resize: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.input-request button {
+    width: 250px;
+    height: 30px;
+}
+
+#advanced {
+    background-color: #1e1f26;
+    position: relative;
+    padding: 15px;
+    border-radius: 0 0 15px 15px;
+    box-shadow: inset 0 -5em 3em rgba(0, 0, 0, 0.1),
+        0em 1em 1em rgba(0, 0, 0, 0.3);
+    margin-top: 19px;
+}
+
+#advanced button {
+    height: 25px;
+}
